@@ -10,11 +10,15 @@ public class SpecialMatrix {
 	
 	void createSpecialMatrix()
 	{
+		int preocnt = dim;
 		for(int i = 0; i<dim; i++)
 		{
-			for(int j = 0; j<dim; j++)
-				matrix[i][j] =(int)(Math.random() *2);
-		}
+			int ocnt = (int)(Math.random() * (preocnt+1));
+			int zcnt = dim - ocnt;
+			for(int j = 0; j<ocnt; j++)
+					matrix[i][j] = 1;
+			preocnt = ocnt;
+		}		
 	}
 	
 	int countOnes()
@@ -39,5 +43,4 @@ public class SpecialMatrix {
 		}
 		System.out.println("Count of ones: " + obj.countOnes());
 	}
-
 }
